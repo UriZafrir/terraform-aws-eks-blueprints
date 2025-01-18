@@ -7,7 +7,7 @@ module "eks" {
   version = "~> 20.24"
 
   cluster_name    = local.name
-  cluster_version = "1.30"
+  cluster_version = "1.31"
 
   # Give the Terraform identity admin access to the cluster
   # which will allow it to deploy resources into the cluster
@@ -41,9 +41,9 @@ module "eks" {
       ami_type       = "BOTTLEROCKET_x86_64"
       instance_types = ["m5.large"]
 
-      min_size     = 2
+      min_size     = 1
       max_size     = 3
-      desired_size = 2
+      desired_size = 1
 
       labels = {
         # Used to ensure Karpenter runs on nodes that it does not manage
